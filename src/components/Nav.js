@@ -19,6 +19,11 @@ const Nav = () => {
         navigate('/')
     }
 
+    const handleSeeAll = (e) => {
+      e.preventDefault();
+      navigate('/drinks/all')
+    }
+
     useEffect(() => {
         axios
           .get("https:/www.thecocktaildb.com/api/json/v1/1/random.php")
@@ -35,7 +40,7 @@ const Nav = () => {
                     <h2 onClick={handleHome}>Next <br /> <span className='textColor'>Drink</span> </h2>
                     <div>
                         <button onClick={handleRandomDrink} className='randomButton'>Random Drink</button>
-                        <button className='randomButton'>See All Cocktails</button>
+                        <button onClick={handleSeeAll} className='randomButton'>See All Cocktails</button>
                     </div>
         </div>
     )

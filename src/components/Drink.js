@@ -4,14 +4,19 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 
-const Random = (props) => {
+const Drink = (props) => {
   const { id } = useParams();
   const [drink, setDrink] = useState({});
   const navigate = useNavigate();
 
   const handleHome = (e) => {
     e.preventDefault();
-    navigate("/");
+    navigate('/');
+  };
+
+  const handleBack = (e) => {
+    e.preventDefault();
+    navigate(-1);
   };
 
   useEffect(() => {
@@ -30,13 +35,13 @@ const Random = (props) => {
           Next <br /> <span className="textColor">Drink</span>{" "}
         </h2>
         <div>
-          <button onClick={handleHome} className="randomButton">
-            Home
+          <button onClick={handleBack} className="randomButton">
+            Back
           </button>
           <button className="randomButton">See All Cocktails</button>
         </div>
       </div>
-      <h3>Enjoy Your Randomly Generated Cocktail:</h3>
+      <h3>Enjoy Your Next Drink:</h3>
       <div className="image">
         <img src={drink.strDrinkThumb} alt={drink.strDrink} />
       </div>
@@ -114,4 +119,4 @@ const Random = (props) => {
   );
 };
 
-export default Random;
+export default Drink;

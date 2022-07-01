@@ -4,25 +4,33 @@ import { useParams, useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  
+  const handleDrinkList = (e) => {
+    e.preventDefault();
+    navigate(`/drinks/${e.target.value}`)
+
+  }
+
   return (
     <div>
       <Nav />
       <h3>Guide to Choosing Your Next Mixed Drink</h3>
       <br />
-      <p style={{marginLeft: '20px'}}>Choose from the following base alcohols:</p>
+      <p style={{marginLeft: '20px'}}>Choose from the following base ingredients:</p>
       <br />
       <div className="container">
         <div>
-        <button className="drinkType">Vodka</button>
-        <button className="drinkType">Whiskey</button>
-        <button className="drinkType">Tequila</button>
-        <button className="drinkType">Gin</button>
+        <button onClick={handleDrinkList} value="Vodka" className="drinkType">Vodka</button>
+        <button onClick={handleDrinkList} value="Whiskey" className="drinkType">Whiskey</button>
+        <button onClick={handleDrinkList} value="Tequila" className="drinkType">Tequila</button>
+        <button onClick={handleDrinkList} value="Gin" className="drinkType">Gin</button>
         </div>
         <div>
-        <button className="drinkType">Bourbon</button>
-        <button className="drinkType">Rum</button>
-        <button className="drinkType">Beer</button>
-        <button className="drinkType">Wine</button>
+        <button onClick={handleDrinkList} value="Bourbon" className="drinkType">Bourbon</button>
+        <button onClick={handleDrinkList} value="Rum" className="drinkType">Rum</button>
+        <button onClick={handleDrinkList} value="Beer" className="drinkType">Beer</button>
+        <button onClick={handleDrinkList} value="Wine" className="drinkType">Wine</button>
         </div>
         
         
