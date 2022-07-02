@@ -11,7 +11,7 @@ const Drink = (props) => {
 
   const handleHome = (e) => {
     e.preventDefault();
-    navigate('/');
+    navigate("/");
   };
 
   const handleBack = (e) => {
