@@ -1,6 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import Nav from "./Nav";
 
 const Dashboard = () => {
@@ -25,8 +24,7 @@ const Dashboard = () => {
         <button onClick={handleDrinkList} value="Whiskey" className="drinkType">Whiskey</button>
         <button onClick={handleDrinkList} value="Tequila" className="drinkType">Tequila</button>
         <button onClick={handleDrinkList} value="Gin" className="drinkType">Gin</button>
-        </div>
-        <div>
+        <br />
         <button onClick={handleDrinkList} value="Bourbon" className="drinkType">Bourbon</button>
         <button onClick={handleDrinkList} value="Rum" className="drinkType">Rum</button>
         <button onClick={handleDrinkList} value="Beer" className="drinkType">Beer</button>

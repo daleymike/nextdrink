@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {useEffect, useState} from 'react';
-import {useParams, useNavigate, Navigate} from 'react-router-dom';
-import Button from 'react-bootstrap'
+import { useNavigate} from 'react-router-dom';
+
 
 const Nav = () => {
     const navigate = useNavigate();
@@ -10,7 +10,6 @@ const Nav = () => {
 
     const handleRandomDrink = (e) => {
         e.preventDefault();
-        console.log(randomDrink.idDrink);
         navigate(`/random/${randomDrink.idDrink}`);
     }
 

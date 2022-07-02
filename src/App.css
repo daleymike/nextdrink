@@ -52,6 +52,7 @@ img {
 .randomButton {
   font-family:  'Gill Sans';
   height: 50px;
+  width: 135px;
   margin: 3px;
   border-radius: 5px;
   transition-duration: .4s;
@@ -89,4 +90,12 @@ img {
 .drinkList{
   color: black;
   text-decoration: none;
+}
+
+#alcoholic {
+  font-family:  'Gill Sans';
+  width: 200px;
+  border: 2px solid rgb(11, 211, 211);
+  box-shadow: 0 0 10px rgb(11, 211, 211);
+  text-align: center;
 }

@@ -1,26 +1,45 @@
 import React from "react";
+import axios from 'axios';
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 
 const AllDrinks = () => {
-  const navigate = useNavigate();
-  
-  const handleDrinkList = (e) => {
-    e.preventDefault();
-    navigate(`/drinks/${e.target.value}`)
+  const [category, setCategory] = useState("Alcoholic");
+  const [drinkList, setDrinkList] = useState([]);
 
+  const handleCategory = (e) => {
+    e.preventDefault();
+    setCategory(e.target.value);
   }
+  
+
+  useEffect(() => {
+    axios
+      .get(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=${category}`)
+      .then((response) => {
+        setDrinkList(response.data.drinks);
+      })
+      .catch((err) => console.log(err));
+  }, [category]);
 
   return (
     <div>
       <Nav />
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <h3>View All Drinks by Category:</h3>
-      <br />
-      <p style={{marginLeft: '20px'}}></p>
+      <select onChange={handleCategory} name="alcoholic" id="alcoholic">
+        <option value="Alcoholic">Alcoholic</option>
+        <option value="Non_Alcoholic">Non-Alcoholic</option>
+      </select>
+      </div>
       <br />
       <div className="container">
-        {/* add category list, link to a list of all in that category with links to drink details */}
+      {drinkList.map((drink) => 
+        <p key={drink.idDrink} style={{textAlign: 'center', margin: 10}}>
+           
+            <Link to={`/drink/${drink.idDrink}`} className='drinkList' > <img style={{height: 200}} src={drink.strDrinkThumb} alt="img" /> <br />{drink.strDrink}</Link>
+        </p>)}
         
       </div>
     </div>
