@@ -9,18 +9,7 @@ const DrinkList = (props) => {
   const [drinkList, setDrinkList] = useState([]);
   const navigate = useNavigate();
 
-  const handleHome = (e) => {
-    e.preventDefault();
-    navigate("/");
-  };
-
-// Takes in Drink ID as Param, Navigates to Drink Details Page
-  const handleDrink = (e) => {
-    e.preventDefault();
-    navigate(`/drink/${e.target.value}`);
-  };
-
-// Gets All Drinks By Ingredient From DB
+  // Gets All Drinks By Ingredient From DB
   useEffect(() => {
     axios
       .get(
