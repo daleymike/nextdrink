@@ -2,7 +2,6 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Nav from "./Nav";
 
 const Drink = (props) => {
   const { id } = useParams();
@@ -50,69 +49,26 @@ const Drink = (props) => {
           Name: {drink.strDrink} ({drink.strAlcoholic})
         </p>
         <p>Ingredients:</p>
-        <ul style={{ listStyle: "none" }}>
-          <li>
-            {drink.strIngredient1}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure1}
-            </span>{" "}
-          </li>
-          <li>
-            {drink.strIngredient2}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure2}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient3}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure3}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient4}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure4}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient5}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure5}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient6}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure6}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient7}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure7}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient8}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure8}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient9}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure9}
-            </span>
-          </li>
-          <li>
-            {drink.strIngredient10}{" "}
-            <span style={{ textDecoration: "underline" }}>
-              {drink.strMeasure10}
-            </span>
-          </li>
-        </ul>
-        <p>Glass: {drink.strGlass}</p>
+        <div style={{ display: "flex" }}>
+          <div>
+            {Object.keys(drink)
+              .filter((x) => x.startsWith("strIngredient"))
+              .map((e) => (
+                <li style={{ marginLeft: 50 }}>{drink[e]} </li>
+              ))}
+          </div>
+          <div>
+            {Object.keys(drink)
+              .filter((x) => x.startsWith("strMeasure"))
+              .map((e) => (
+                <li style={{ textDecoration: "underline", marginLeft: 20 }}>
+                  {drink[e]}
+                </li>
+              ))}
+          </div>
+        </div>
+
+        <p style={{ marginTop: 20 }}>Glass: {drink.strGlass}</p>
         <p>Instructions: {drink.strInstructions}</p>
       </div>
     </div>

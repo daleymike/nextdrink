@@ -23,6 +23,7 @@ p,
 li {
   font-family: "Gill Sans";
   font-size: large;
+  list-style: none;
 }
 
 .image {
