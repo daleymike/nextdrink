@@ -7,6 +7,7 @@ const Nav = () => {
   const navigate = useNavigate();
   const [randomDrink, setRandomDrink] = useState({});
 
+  // Navigates to Random Drink Details Page Using ID Stored in Random Drink State
   const handleRandomDrink = (e) => {
     e.preventDefault();
     navigate(`/random/${randomDrink.idDrink}`);
@@ -22,6 +23,7 @@ const Nav = () => {
     navigate("/drinks/all");
   };
 
+// Gets Random Cocktail From Database and Stores In State
   useEffect(() => {
     axios
       .get("https:/www.thecocktaildb.com/api/json/v1/1/random.php")

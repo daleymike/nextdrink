@@ -8,10 +8,14 @@ const AllDrinks = () => {
   const [category, setCategory] = useState("Alcoholic");
   const [drinkList, setDrinkList] = useState([]);
 
+
+  // Category State Value Updates When Selection is Changed
   const handleCategory = (e) => {
     e.preventDefault();
     setCategory(e.target.value);
   };
+
+  // Getting All Drinks Based on Catgegory (Alcoholic v Non-Alcoholic)
 
   useEffect(() => {
     axios

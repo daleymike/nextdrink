@@ -18,6 +18,8 @@ const Drink = (props) => {
     navigate(-1);
   };
 
+// Getting Drink Info using ID Passed Through Params
+
   useEffect(() => {
     axios
       .get(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`)
@@ -50,7 +52,11 @@ const Drink = (props) => {
         </p>
         <p>Ingredients:</p>
         <div style={{ display: "flex" }}>
+
+          {/* filtering through ingredients and amounts */}
+          
           <div>
+            
             {Object.keys(drink)
               .filter((x) => x.startsWith("strIngredient"))
               .map((e) => (

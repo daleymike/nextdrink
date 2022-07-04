@@ -14,11 +14,13 @@ const DrinkList = (props) => {
     navigate("/");
   };
 
+// Takes in Drink ID as Param, Navigates to Drink Details Page
   const handleDrink = (e) => {
     e.preventDefault();
     navigate(`/drink/${e.target.value}`);
   };
 
+// Gets All Drinks By Ingredient From DB
   useEffect(() => {
     axios
       .get(
